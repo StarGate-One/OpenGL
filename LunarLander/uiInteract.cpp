@@ -89,11 +89,11 @@ void drawCallback()
    // Prepare the background buffer for drawing
    glClear(GL_COLOR_BUFFER_BIT); //clear the screen
    glColor3f(1,1,1);
-   
+
    //calls the client's display function
    assert(ui.callBack != NULL);
    ui.callBack(&ui, ui.p);
-   
+
    //loop until the timer runs out
    if (!ui.isTimeToDraw())
       sleep((unsigned long)((ui.getNextTick() - clock()) / 1000));
@@ -269,7 +269,7 @@ void Interface::initialize(int argc, char ** argv, const char * title, Point top
 {
    if (initialized)
       return;
-   
+
    // set up the random number generator
    srand((unsigned int)time(NULL));
 
@@ -279,12 +279,12 @@ void Interface::initialize(int argc, char ** argv, const char * title, Point top
    glutInitWindowSize(   // size of the window
       (int)(bottomRight.getX() - topLeft.getX()),
       (int)(topLeft.getY() - bottomRight.getY()));
-            
-   glutInitWindowPosition( 10, 10);                // initial position 
+
+   glutInitWindowPosition( 10, 10);                // initial position
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);  // double buffering
    glutCreateWindow(title);              // text on titlebar
    glutIgnoreKeyRepeat(true);
-   
+
    // set up the drawing style: B/W and 2D
    glClearColor(0, 0, 0, 0);          // Black is the background color
    gluOrtho2D((int)topLeft.getX(), (int)bottomRight.getX(),
@@ -297,7 +297,7 @@ void Interface::initialize(int argc, char ** argv, const char * title, Point top
    glutSpecialFunc(   keyDownCallback );
    glutSpecialUpFunc( keyUpCallback   );
    initialized = true;
-   
+
    // done
    return;
 }

@@ -37,7 +37,7 @@ void Point::setX(float x)
 void Point::setY(float y)
 {
    this->y = y;
-} 
+}
 
 /******************************************
  * POINT insertion
@@ -64,4 +64,3 @@ std::istream & operator >> (std::istream & in, Point & pt)
 
    return in;
 }
-   

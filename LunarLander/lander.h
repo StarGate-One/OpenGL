@@ -20,7 +20,7 @@ class Lander
 
 
    public:
-     
+
 
       Lander();
       Point getPoint() const;
@@ -30,7 +30,7 @@ class Lander
       int getFuel() ;
       bool canThrust();
       void setLanded(bool landed);
-      void setAlive(bool alive); 
+      void setAlive(bool alive);
       void setFuel(int fuel);
       void applyGravity(float gravity);
       void applyThrustLeft();
@@ -41,4 +41,4 @@ class Lander
 
 };
 
-#endif 
+#endif

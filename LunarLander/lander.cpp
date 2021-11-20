@@ -21,7 +21,7 @@ Lander :: Lander()
 * Purpuse:  change the from value to the one
 *          that is decided by the user
 ******************************************/
-void Lander :: setFuel(int fuel) 
+void Lander :: setFuel(int fuel)
 {
   if(fuel < 0)
   {
@@ -30,8 +30,8 @@ void Lander :: setFuel(int fuel)
   else
   {
    this-> fuel = fuel;
-  } 
-   
+  }
+
 }
 
 
@@ -56,7 +56,7 @@ Velocity Lander :: getVelocity() const
 
 /***************************************
 * Function: isAlive()
-* Purpuse:  access to the value alive      
+* Purpuse:  access to the value alive
 **************************************/
 bool Lander:: isAlive()
 {
@@ -87,20 +87,20 @@ bool Lander :: canThrust()
   if (landed == true)
       {
        return false;
-      } 
+      }
   else if(fuel <= 0)
-      { 
+      {
       fuel = 0;
       return false;
       }
-  else  
+  else
       return alive;
 }
 
 
 /***************************************
 * Function: setLanded()
-* Purpuse:  change the variable landed 
+* Purpuse:  change the variable landed
 *      from the design by the user
 **************************************/
 void Lander :: setLanded(bool landed)
@@ -116,17 +116,17 @@ void Lander :: setAlive(bool alive)
 
 /******************************************
 * Function: applyGravity
-* Purpuse: apply the gravity to the velocity 
+* Purpuse: apply the gravity to the velocity
 ********************************************/
 // 這個我覺我不太可能自己想出來
 void Lander :: applyGravity(float gravity)
 {
-  velocity.setDy(velocity.getDy() - gravity); 
+  velocity.setDy(velocity.getDy() - gravity);
 }
 
 /******************************************
 * Function: applyThrustLeft
-* Purpuse: the function assits the lander to 
+* Purpuse: the function assits the lander to
 *          thrust left and change the velocity
 *********************************************/
 void Lander :: applyThrustLeft()
@@ -150,12 +150,12 @@ void Lander :: applyThrustLeft()
 //為什麼往左右的速度要+-0.1
 /***************************************
 * Function: applyThrustRight
-* Purpuse: the function assits the lander to 
+* Purpuse: the function assits the lander to
 *          thrust right and change the velocity
 **************************************/
 void Lander :: applyThrustRight()
 {
-  if(fuel > 0) 
+  if(fuel > 0)
   {
     velocity.setDx(velocity.getDx()- 0.1);
     setFuel(fuel - 1);
@@ -168,7 +168,7 @@ void Lander :: applyThrustRight()
 /*************************************************************
 * Function: applyThrustBottom
 * Purpuse: Make the lander thrust with the down arrow key and
-*          the flame will thrust downwards and push up the lander 
+*          the flame will thrust downwards and push up the lander
 **************************************************************/
 void Lander :: applyThrustBottom()
 {
@@ -176,7 +176,7 @@ void Lander :: applyThrustBottom()
   if (fuel > 0)
   {
     velocity.setDy(velocity.getDy() + 0.4);
-    setFuel(fuel - 3); 
+    setFuel(fuel - 3);
   }
 
 }

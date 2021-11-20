@@ -85,7 +85,7 @@ void drawLander(const Point & point);
  * DRAW Lander Flame
  * Draw the flames coming out of a moonlander for thrust
  ***********************************************************************/
-void drawLanderFlames(const Point & point, 
+void drawLanderFlames(const Point & point,
                       bool bottom,
                       bool left,
                       bool right);
@@ -108,9 +108,9 @@ void drawSacredBird(const Point & center, float radius);
  *************************************************************************/
 void drawToughBird(const Point & center, float radius, int hits);
 
-/************************************************************************      
- * DRAW Ship                                                                   
- * Draw the spaceship on the screen                                         
+/************************************************************************
+ * DRAW Ship
+ * Draw the spaceship on the screen
  *************************************************************************/
 void drawShip(const Point & point, int rotation, bool thrust = false);
 
@@ -124,7 +124,7 @@ void drawLargeAsteroid( const Point & point, int rotation);
 /******************************************************************
  * RANDOM
  * This function generates a random number.  The user specifies
- * The parameters 
+ * The parameters
  *    INPUT:   min, max : The number of values (min <= num <= max)
  *    OUTPUT   <return> : Return the integer
  ****************************************************************/

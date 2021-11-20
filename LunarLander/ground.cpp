@@ -13,10 +13,10 @@
  * GROUND :: CONSTRUCTOR
  ********************************************/
 Ground :: Ground(Point tl, Point br) : topLeft(tl), bottomRight(br)
-{  
+{
    Point pt; // create a point to get the dimensions
    xSize = bottomRight.getX() - topLeft.getX();
-      
+
    // create the ground
    ground = new float[xSize];
    generateGround();
@@ -30,23 +30,23 @@ Ground :: Ground(Point tl, Point br) : topLeft(tl), bottomRight(br)
 Point Ground :: getGround(const Point & ptSrc) const
 {
    Point pt(ptSrc);
-   
+
    // handle invalid cases
    if (ptSrc.getX() < topLeft.getX() || ptSrc.getX() > bottomRight.getX())
       pt.setY(bottomRight.getY());
-      
+
    // handle the platform case
    else if (ptSrc.getX() - platform.getX() < PLATFORM / 2.0 &&
        platform.getX() - ptSrc.getX() < PLATFORM / 2.0)
       pt.setY(platform.getY());
-   
+
    // otherwise, the normal ground
-   else 
+   else
       pt.setY(ground[(int)(ptSrc.getX() - bottomRight.getX())]);
-   
+
    return pt;
 }
- 
+
 
 /***************************************
  * GROUND :: DRAW
@@ -57,12 +57,12 @@ void Ground :: draw() const
    // set the initial position at the platform location
    Point pt1 = platform;
    Point pt2 = platform;
-      
+
    // draw the platform
    pt1.addX(-PLATFORM / 2.0);
    pt2.addX( PLATFORM / 2.0);
    drawLine(pt1, pt2, 1.0 /*red*/, 1.0 /*green*/, 0 /*blue*/);
-   
+
    // draw the platform supports
    pt2.setY(bottomRight.getY());
    pt2.setX(pt1.getX());
@@ -80,7 +80,7 @@ void Ground :: draw() const
       Point ptTop   (topLeft.getX() + i, ground[i]);
       drawLine(ptBottom, ptTop, 0.9 /*red*/, 0.9 /*green*/, 0.9 /*blue*/);
    }
-   
+
 }
 
 /*********************************************
@@ -94,17 +94,17 @@ bool Ground :: isAboveGround(const Point & point) const
           point.getX() < bottomRight.getX() &&
           point.getY() > ground[(int)(point.getX() - topLeft.getX())];
 }
-   
+
 /*****************************************
  * GROUND :: GENERATE GROUND
- * generate a new terrain 
+ * generate a new terrain
  *******************************************/
 void Ground :: generateGround()
 {
    Point pt;                              // to get the screen size
    float yMiddle = bottomRight.getY() +         // the midpoint of the screen
          (topLeft.getY() - bottomRight.getY()) / 2.0;
-      
+
    // create the ground
    ground[0] = 0.0 + bottomRight.getY();
    float slope = 1.0;
@@ -114,16 +114,16 @@ void Ground :: generateGround()
          (ground[i - 1] < yMiddle) &&                    // not too high
          (ground[i - 1] - bottomRight.getY() < xSize - i) &&   // not near the end
          (slope < 3.0);                                  // not too steep
-         
+
       bool down =   // can the ground slope down
          (ground[i - 1] > bottomRight.getY() + 10) &&          // not too low
          (i > 10) &&                                     // not near the beginning
          (slope > -3.0);                                 // not too steep;
-         
-      slope += random((down ? -BUMPY : 0.0), (up ? BUMPY : 0.0));         
+
+      slope += random((down ? -BUMPY : 0.0), (up ? BUMPY : 0.0));
       ground[i] = ground[i - 1] + slope;
    }
-      
+
    // create the platform
    int iPlatform = random(xSize / 4, xSize * 3 / 4);
    int yMax = ground[iPlatform - PLATFORM / 2];

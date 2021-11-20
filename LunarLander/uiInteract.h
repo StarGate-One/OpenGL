@@ -37,7 +37,7 @@ public:
    {
       initialize(argc, argv, title, topLeft, bottomRight);
    }
-   
+
    // Destructor, incase any housecleaning needs to occr
    ~Interface();
 
@@ -55,7 +55,7 @@ public:
 
    // How many frames per second are we configured for?
    void setFramesPerSecond(double value);
-   
+
    // Key event indicating a key has been pressed or not.  The callbacks
    // should be the only onces to call this
    void keyEvent(int key, bool fDown);
@@ -63,14 +63,14 @@ public:
 
    // Current frame rate
    double frameRate() const { return timePeriod;   };
-   
+
    // Get various key events
    int  isDown()      const { return isDownPress;  };
    int  isUp()        const { return isUpPress;    };
    int  isLeft()      const { return isLeftPress;  };
    int  isRight()     const { return isRightPress; };
    bool isSpace()     const { return isSpacePress; };
-   
+
    static void *p;                   // for client
    static void (*callBack)(const Interface *, void *);
 

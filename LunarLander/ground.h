@@ -30,25 +30,25 @@ public:
    {
       delete [] ground;
    }
-      
+
    // display the ground on the screen
    void draw() const;
-   
+
    // did we leave the screen or enter the ground?
    bool isAboveGround(const Point & point) const;
-   
+
    // what is our elevation?
    Point getGround(const Point & pt) const;
-      
-   // generate a new terrain 
+
+   // generate a new terrain
    void generateGround();
-   
+
    // get the platform point
    Point getPlatformPosition() const { return platform; }
 
    // what is the width of the platform?
    int getPlatformWidth() const { return PLATFORM; }
-   
+
 private:
 
    Point platform;   // position of the platform

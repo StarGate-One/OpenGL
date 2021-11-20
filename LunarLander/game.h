@@ -46,27 +46,27 @@ public:
       ufo = NULL;
 
    }
-   
+
    /*********************************************
     * Function: handleInput
     * Description: Takes actions according to whatever
     *  keys the user has pressed.
     *********************************************/
    void handleInput(const Interface & ui);
-   
+
    /*********************************************
     * Function: advance
     * Description: Move everything forward one
     *  step in time.
     *********************************************/
    void advance();
-   
+
    /*********************************************
     * Function: draw
     * Description: draws everything for the game.
     *********************************************/
    void draw(const Interface & ui);
-   
+
 private:
    /*********************************************
     * Function: justLanded
@@ -74,11 +74,11 @@ private:
     *  just successfully landed.
     *********************************************/
    bool justLanded() const;
-   
+
    // The coordinates of the screen
    Point topLeft;
    Point bottomRight;
-   
+
    Ground ground;
    Lander lander;
    UFO* ufo;// remember the address of the ufo object
